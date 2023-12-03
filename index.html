@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Prediction</title>
+
+    <style>
+        /* Your styles go here */
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Insurance Prediction</h1>
+    </header>
+
+    <main>
+        <form id="insuranceForm">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="income">Annual Income:</label>
+            <input type="number" id="income" name="income" required>
+
+            <button type="button" onclick="predictInsurance()">Predict Insurance</button>
+        </form>
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        function predictInsurance() {
+            // Get form data
+            const age = document.getElementById("age").value;
+            const gender = document.getElementById("gender").value;
+            const income = document.getElementById("income").value;
+
+            // Simulated prediction logic (replace this with actual prediction)
+            const prediction = simulatePrediction(age, gender, income);
+
+            // Display the result in the #result element
+            document.getElementById("result").innerText = `Predicted Insurance: $${prediction}`;
+        }
+
+        function simulatePrediction(age, gender, income) {
+            // Simulated logic - Replace this with actual machine learning model or API call
+            // This is just a placeholder
+            const basePremium = 500;
+            const ageFactor = age < 25 ? 1.5 : 1;
+            const genderFactor = gender === 'female' ? 0.8 : 1;
+            const incomeFactor = income > 50000 ? 0.9 : 1;
+
+            const predictedPremium = basePremium * ageFactor * genderFactor * incomeFactor;
+
+            return predictedPremium.toFixed(2);
+        }
+    </script>
+
+</body>
+
+</html>
